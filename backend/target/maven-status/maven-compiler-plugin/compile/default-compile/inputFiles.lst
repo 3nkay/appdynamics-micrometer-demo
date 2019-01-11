@@ -1,0 +1,5 @@
+/home/nikolaikavtur/IdeaProjects/appdynamicsmicrometerdemo/backend/src/main/java/home/nkavtur/mictometerdemo/config/JmsConfiguration.java
+/home/nikolaikavtur/IdeaProjects/appdynamicsmicrometerdemo/backend/src/main/java/home/nkavtur/mictometerdemo/domain/User.java
+/home/nikolaikavtur/IdeaProjects/appdynamicsmicrometerdemo/backend/src/main/java/home/nkavtur/mictometerdemo/MictometerDemoApplication.java
+/home/nikolaikavtur/IdeaProjects/appdynamicsmicrometerdemo/backend/src/main/java/home/nkavtur/mictometerdemo/UserListener.java
+/home/nikolaikavtur/IdeaProjects/appdynamicsmicrometerdemo/backend/src/main/java/home/nkavtur/mictometerdemo/metrics/MetricsService.java
