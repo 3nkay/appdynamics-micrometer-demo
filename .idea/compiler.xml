@@ -6,16 +6,15 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="appdynamics" />
         <module name="backend" />
-        <module name="deploy" />
+        <module name="gateway" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="appdynamics" options="" />
       <module name="backend" options="-parameters" />
+      <module name="gateway" options="-parameters" />
     </option>
   </component>
 </project>

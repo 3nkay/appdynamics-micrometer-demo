@@ -1,4 +1,4 @@
-version: '3.7'
+version: '3.4'
 
 networks:
   overlay-net:
@@ -31,7 +31,7 @@ services:
       - appdynamics-agent-vol:/sharedFiles
 
   backend-app:
-    image: nkavtur/micrometer-app:latest
+    image: nkavtur/users-backend-app:latest
     restart: always
     ports:
       - "8080:8080"
@@ -41,9 +41,33 @@ services:
     networks:
     - overlay-net
     environment:
-      - APPDYNAMICS_CONTROLLER_HOST_NAME=grace201901100005489.saas.appdynamics.com
+      - APPDYNAMICS_CONTROLLER_HOST_NAME=${APPDYNAMICS_CONTROLLER_HOST_NAME}
       - APPDYNAMICS_CONTROLLER_PORT=443
       - APPDYNAMICS_CONTROLLER_SSL_ENABLED=true
       - APPDYNAMICS_AGENT_APPLICATION_NAME=backend-app
       - APPDYNAMICS_AGENT_TIER_NAME=backend-tier
       - APPDYNAMICS_AGENT_NODE_NAME=backend-node
+      - APPDYNAMICS_AGENT_ACCOUNT_NAME=${APPDYNAMICS_AGENT_ACCOUNT_NAME}
+      - APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY=${APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY}
+      - JAVA_OPTS=-Dcom.sun.management.jmxremote -Djava.rmi.server.hostname=0.0.0.0 -Dcom.sun.management.jmxremote.local.only=false -Dcom.sun.management.jmxremote.rmi.port=9010 -Dcom.sun.management.jmxremote.port=9010 -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false
+
+  gateway-app:
+    image: nkavtur/users-gateway-app:latest
+    restart: always
+    ports:
+      - "8888:8888"
+      - "9011:9011"
+    volumes:
+      - appdynamics-agent-vol:/sharedFiles
+    networks:
+      - overlay-net
+    environment:
+      - APPDYNAMICS_CONTROLLER_HOST_NAME=${APPDYNAMICS_CONTROLLER_HOST_NAME}
+      - APPDYNAMICS_CONTROLLER_PORT=443
+      - APPDYNAMICS_CONTROLLER_SSL_ENABLED=true
+      - APPDYNAMICS_AGENT_APPLICATION_NAME=gateway-app
+      - APPDYNAMICS_AGENT_TIER_NAME=backend-tier
+      - APPDYNAMICS_AGENT_NODE_NAME=backend-node
+      - APPDYNAMICS_AGENT_ACCOUNT_NAME=${APPDYNAMICS_AGENT_ACCOUNT_NAME}
+      - APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY=${APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY}
+      - JAVA_OPTS=-Dcom.sun.management.jmxremote -Djava.rmi.server.hostname=0.0.0.0 -Dcom.sun.management.jmxremote.local.only=false -Dcom.sun.management.jmxremote.rmi.port=9011 -Dcom.sun.management.jmxremote.port=9011 -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false

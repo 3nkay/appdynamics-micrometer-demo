@@ -11,8 +11,7 @@
 
     <modules>
         <module>backend</module>
-        <module>appdynamics</module>
-        <module>deploy</module>
+        <module>gateway</module>
     </modules>
 
 </project>

@@ -1,5 +1,6 @@
-home/nkavtur/mictometerdemo/domain/User.class
-home/nkavtur/mictometerdemo/MictometerDemoApplication.class
-home/nkavtur/mictometerdemo/config/JmsConfiguration.class
-home/nkavtur/mictometerdemo/UserListener.class
-home/nkavtur/mictometerdemo/metrics/MetricsService.class
+home/nkavtur/api/metrics/MetricsService.class
+home/nkavtur/api/domain/User.class
+home/nkavtur/api/UserListener.class
+home/nkavtur/api/config/JmsConfiguration.class
+home/nkavtur/api/service/UsersService.class
+home/nkavtur/api/MictometerDemoApplication.class
